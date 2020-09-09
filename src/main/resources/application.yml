@@ -1,0 +1,68 @@
+spring:
+  security:
+    user:
+      name: user
+      password: password
+
+  mail:
+    host: smtp.mailtrap.io #smtp.gmail.com
+    port: 2525 #587 [TLS] 465[SSL]
+    username: 3b763f2ec62c45
+    password: 602205f7195a6f
+    default-encoding: UTF-8
+    protocol: smtp
+    test-connection: false
+    properties:
+      mail:
+        smtp:
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+          auth: true
+          starttls:
+            enable: true
+
+  freemarker:
+    template-loader-path: classpath:/templates
+
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/employee_management_system?useSSL=false
+    username: root
+    password: noidea
+
+  jpa:
+    properties:
+      hibernate:
+        dialect:
+          org.hibernate.dialect.MySQL5InnoDBDialect
+
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true
+
+  #    LDAP
+  ldap:
+    embedded:
+      ldif: classpath:test-server.ldif
+      base-dn: dc=springframework,dc=org
+      port: 8389
+
+
+
+
+
+server:
+  port: 8443
+  ssl:
+    key-store-password: noidea
+    key-store: classpath:keystore.p12
+    key-store-type: PKCS12
+    key-alias: tomcat
+
+springdoc:
+  api-docs:
+    path: /employee-docs
+
+
